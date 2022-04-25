@@ -25,7 +25,11 @@ npx gitignore node (this makes it so .env does not push to GitHub)
 
 mkdir api data routes
 
+
 touch api/server.js routes/data.js
+
+
+touch README.md  (can likely add it to the list above but I did it after)
 
 
 git add .
@@ -136,3 +140,34 @@ We expect to see:
   "message": "Welcome to the API",
   "time": "4/25/2022, 3:20:41 PM"
 }
+
+
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+
+Open GitHub.com
+
+
+Click 'create a new repository'. || 'New' (they change it with updates)
+
+
+Give the repo a name.
+
+
+Click 'create repository'.
+
+
+COPY & PASTE THIS IN TERMINAL:
+git remote add origin https://github.com/AaronGabriel147/stoic-quote-webapp.git
+
+
+COPY & PASTE THIS IN THE TERMINAL:
+git push -u origin main
+
+
+
+
+
+
+
