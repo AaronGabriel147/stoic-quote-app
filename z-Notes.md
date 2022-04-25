@@ -1,10 +1,12 @@
-Video 1 Zac setup https://www.youtube.com/watch?v=-mcM5GB8OIA&t=1901s
+Video 1, Zac setup https://www.youtube.com/watch?v=-mcM5GB8OIA&t=1901s
+
 
 Step 1:
 
 This method will start the repo off locally, rather than on GitHub.
 Create a folder on desktop. Name it whatever the repo name will be.
-documents/stoic-quote-app
+Example: documents/stoic-quote-app
+
 
 cd into folder
 
@@ -12,10 +14,13 @@ cd into folder
 touch index.js
 
 
-npm init -y [creates package.json]
+touch .env
 
 
-Add to scripts:
+npm init -y (creates package.json) 
+
+
+Add to scripts to package.json:
     "start": "node index.js",
     "server": "nodemon index.js"
 
@@ -23,21 +28,19 @@ Add to scripts:
 npx gitignore node (this makes it so .env does not push to GitHub)
 
 
-mkdir api data routes
+mkdir api data routes (creates 3 folders)
 
 
-touch api/server.js routes/data.js
+touch api/server.js routes/data.js (creates 2 files in 2 different folders)
 
 
-touch README.md  (can likely add it to the list above but I did it after)
-
-
+Make your first commit:
 git add .
 git commit -m 'initial commit'
 
 
 installs:
-npm i -D nodemon
+npm i -D nodemon (needs to be installed on it's own)
 
 
 npm i express helmet cors morgan dotenv
@@ -46,7 +49,7 @@ npm i express helmet cors morgan dotenv
 _________________________________
 
 
-First piece of code written. Inside index.js:
+Code inside index.js:
 
 
 require('dotenv').config();  // always put this at the top of your file.
@@ -69,16 +72,21 @@ __________________________________
 npm start (test this first, because when you deploy, if your start script is not right, it will not deploy.)
 
 
-touch .env
+
+_______________________________________
 
 
 Code to write inside .env:
 PORT = 5000
 
+
+_______________________________________
+
+
 npm run server
 
 
-___________________________________________
+_______________________________________
 
 
 Code for api/server/js:
@@ -126,7 +134,7 @@ module.exports = server;
 
 
 
-______________________________________________________
+______________________________________________
 
 
 
@@ -159,15 +167,32 @@ Click 'create repository'.
 
 
 COPY & PASTE THIS IN TERMINAL:
-git remote add origin https://github.com/AaronGabriel147/stoic-quote-webapp.git
 
 
-COPY & PASTE THIS IN THE TERMINAL:
+echo "# stoic-quote-app" >> README.md
+
+
+git add README.md
+
+
+git commit -m 'readme'
+
+
+(if you are already on main, skip this step, sometimes you're on master)
+git branch -M main  
+
+
+git remote add origin https://github.com/AaronGabriel147/stoic-quote-app.git
+
+
 git push -u origin main
 
 
 
+Refresh the webpage and you will see your repo on GitHub. 
 
 
 
 
+DEPLOY starts at the 30 minute mark, but I think it may be best to switch video here.
+Switch to Heroku/pg deployment.
