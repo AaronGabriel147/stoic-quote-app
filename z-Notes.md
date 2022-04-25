@@ -152,7 +152,7 @@ Open GitHub.com
 Click 'create a new repository'. || 'New' (they change it with updates)
 
 
-Give the repo a name.
+Give the repo the exact name that you have named it locally.
 
 
 Click 'create repository'.
