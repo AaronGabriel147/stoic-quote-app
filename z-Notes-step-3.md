@@ -88,6 +88,26 @@ Run seeds:
     knex seed:run
 
 
+_________________________
+
+
+Above are a list of commands, that I did was knex migrate:make YATA_YATA then knex migrate:latest
+
+
+
+Now we want to deploy to Heroku:
+
+    git add .
+    git commit -m 'Heroku push.'
+    git push Heroku main
+
+
+
+***WAIT~!~!!~~!~!
+After checking postgres to make sure the table now exists, it is time to run these commands in Heroku:
+
+
+    npm run migrateh
 
 
 
