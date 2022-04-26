@@ -1,6 +1,6 @@
 # Migrations and Seeds:    
 
-@29:51
+@33:00 you can set up heroku db to work in the CLI `databaseh`
 - https://bloomtech-1.wistia.com/medias/2625bl7sei
 - I am starting this video at the 28:00 mark, that is when migrations start. 
 
@@ -95,16 +95,20 @@ Above are a list of commands, that I did was knex migrate:make YATA_YATA then kn
 
 
 
-Now we want to deploy to Heroku:
+# Now we want to deploy to Heroku:
 
     - git add .
     - git commit -m 'Heroku push.'
     - heroku git:remote -a thestoics (this makes sure your repo is connected to Heroku)
-    - git push Heroku main (must merge branch to main first, I think...)
+    - git push heroku main (must merge branch to main first, I think...)
     - npm run migrateh
 
 
+Now if the 'Batch has run, go to heroku.com, click app, then resources, then postgres, and see if the tables have changed!
 
+
+
+_______________________________________
 
 
 
