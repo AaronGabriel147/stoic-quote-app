@@ -24,20 +24,6 @@
 
 
 
-Create a migration table:
-
-    knex migrate:make migration_name 
-
-
-Rollback migrations:
-
-    knex migrate:rollback
-
-
-Update migrations:
-
-    knex migrate:latest
-
 
 Create folder and file:
 
@@ -73,6 +59,19 @@ ________________________________________________
 
 
 
+Create a migration table:
+
+    knex migrate:make migration_name 
+
+
+Rollback migrations:
+
+    knex migrate:rollback
+
+
+Update migrations:
+
+    knex migrate:latest
 
 
 
