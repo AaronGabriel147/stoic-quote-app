@@ -58,10 +58,14 @@ Inside data.config.js:
 ________________________________________________
 
 
+#Canvas section on Knex migrations:
+https://bloomtech.instructure.com/courses/1772/pages/objective-3-create-and-use-knex-migrations?module_item_id=623846
+
+
 
 Create a migration table:
 
-    knex migrate:make migration_name 
+    knex migrate:make MIGRATION_NAME   ('npx run' typed before the command gave a strange error and did not work) 
 
 
 Rollback migrations:
