@@ -37,7 +37,8 @@ In the 'Add-on' section start typing 'Heroku Postgres and then click on it.
 
 
 
-When we want to see the web app info like tables: while you are in resources, simply click the app name near the bottom. https://data.heroku.com/datastores/05c490ea-88fb-43e8-8690-234992160907#
+When we want to see the web app info like tables: while you are in resources, simply click the app name near the bottom. 
+https://data.heroku.com/datastores/05c490ea-88fb-43e8-8690-234992160907#
 
 
 
@@ -59,35 +60,130 @@ Right click database and create a database, name it whatever you want and create
 
 
 
+__________________________________________________________________________
 
 
+touch .env
 
 
+Code for .env:
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-____________________________
-
-dot env example:
 
 PORT = 5000
 NODE_ENV = development
-DEV_DATABASE_URL = 'postgres:postgres@localhost:5432/stoa'
+DEV_DATABASE_URL = 'postgres:postgres@localhost:5432/db-name-banana'
+TESTING_DATABASE_URL = 'postgres:postgres@localhost:5432/db-name-testing-banana'
 
 
-___________________________
+___________________________________________________________________________
+
+
+
+touch knexfile.js
+
+
+// Code for knexfile.js:
+
+
+require('dotenv').config()
+const pg = require('pg')
+
+if (process.env.DATABASE_URL) {
+    pg.defaults.ssl = { rejectUnauthorized: false }
+}
+
+const sharedConfig = {
+    client: 'pg',
+    migrations: { directory: './data/migrations' },  // was api/data/...
+    seeds: { directory: './data/seeds' },
+}
+
+module.exports = {
+    development: {
+        ...sharedConfig,
+        connection: process.env.DEV_DATABASE_URL,
+    },
+    testing: {
+        ...sharedConfig,
+        connection: process.env.TESTING_DATABASE_URL,
+    },
+    production: {
+        ...sharedConfig,
+        connection: process.env.DATABASE_URL,
+        pool: { min: 2, max: 10 },
+    },
+}
+
+
+// The following chunk is MY ORIGINAL CODE BEFORE THE BUILD COPY AND PASTE*************
+// Saving for reference:
+
+
+
+
+// module.exports = {
+//     development: {
+//         client: 'pg',
+//         connection: {
+//             filename: './data/quotes.db3',
+//         },
+//         useNullAsDefault: true,
+//         migrations: {
+//             directory: './data/migrations',
+//         },
+//         seeds: {
+//             directory: './data/seeds',
+//         },
+//     },
+// };
+
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+// module.exports = {
+//     development: {
+//         client: 'sqlite3',
+//         connection: {
+//             filename: './data/auth.db3'
+//         },
+//         useNullAsDefault: true,
+//         migrations: {
+//             directory: './data/migrations'
+//         },
+//         seeds: {
+//             directory: './data/seeds'
+//         },
+//     },
+//     production: {},
+//     testing: {}
+// };
+
+
+____________________________________________________________
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
