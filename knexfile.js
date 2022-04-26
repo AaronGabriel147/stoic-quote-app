@@ -7,7 +7,7 @@ if (process.env.DATABASE_URL) {
 
 const sharedConfig = {
     client: 'pg',
-    migrations: { directory: './data/migrations' },  // was api/data/...
+    migrations: { directory: './data/migrations' },
     seeds: { directory: './data/seeds' },
 }
 

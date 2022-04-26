@@ -1,6 +1,6 @@
 # Migrations and Seeds:    
 
-
+@29:51
 - https://bloomtech-1.wistia.com/medias/2625bl7sei
 - I am starting this video at the 28:00 mark, that is when migrations start. 
 
@@ -72,6 +72,21 @@ Rollback migrations:
 Update migrations:
 
     knex migrate:latest
+
+
+Create seed:
+
+    knex seed:make NAME_OF_SEED
+
+
+Run seeds:
+
+    knex seed:run
+
+
+
+
+
 
 
 
