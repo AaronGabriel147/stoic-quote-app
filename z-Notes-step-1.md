@@ -1,4 +1,5 @@
-Video 1, Zac setup https://www.youtube.com/watch?v=-mcM5GB8OIA&t=1901s
+# Step 1 repo and back end scaffolding setup: 
+https://www.youtube.com/watch?v=-mcM5GB8OIA&t=1901s
 
 
 Step 1:
