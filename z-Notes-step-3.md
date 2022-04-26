@@ -105,14 +105,6 @@ Now we want to deploy to Heroku:
 
 
 
-***WAIT~!~!!~~!~!
-After checking postgres to make sure the table now exists, it is time to run these commands in Heroku:
-
-
-    npm run migrateh
-
-
-
 
 
 
