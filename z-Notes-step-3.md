@@ -5,9 +5,13 @@
 - I am starting this video at the 28:00 mark, that is when migrations start. 
 
 
+    npm i knex
 
 
-Custom scripts:
+    npm i pg
+
+
+# Custom scripts added:
     
     "rollback": "knex migrate:rollback",
     "migrate": "knex migrate:latest",
@@ -17,3 +21,60 @@ Custom scripts:
     "seedh": "heroku run knex seed:run -a NAMEofAPPonHEROKU",
     "databaseh": "heroku pg:psql -a NAMEofAPPonHEROKU",
     "deploy": "git push heroku main"
+
+
+
+Create a migration table:
+
+    knex migrate:make migration_name 
+
+
+Rollback migrations:
+
+    knex migrate:rollback
+
+
+Update migrations:
+
+    knex migrate:latest
+
+
+Create folder and file:
+
+    mkdir data
+
+    touch data/config.js
+
+
+________________________________________________
+
+
+Inside data.config.js:
+
+
+
+    // This file references 'knexfile.js'
+
+    const knex = require('knex');
+
+    const configs = require('../knexfile');
+
+    const env = process.env.NODE_ENV || 'development';
+
+    module.exports = knex(configs[env]);
+
+
+
+    // Another version looked like this:
+    // module.exports = knex(config.development);
+
+
+________________________________________________
+
+
+
+
+
+
+
+
