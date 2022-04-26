@@ -2,7 +2,7 @@
 - https://bloomtech-1.wistia.com/medias/2625bl7sei
 - @ 9:25 is when the actual follow along starts if you already have Heroku CLI and a repo set up.
 - @ 18:00 The section on postgres starts
-- I left off at 24:40 Right when the .env file starts, before that was just kicking the tires. 
+- I left off at 28:00. This is about migrations so I will stop referencing this video in thisNotes file and start it in Notes 3.  
 
 Download Heroku CLI
 
