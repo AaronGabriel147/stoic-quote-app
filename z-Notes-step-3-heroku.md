@@ -113,4 +113,6 @@ _______________________________________
 
 
 
-
+@33:00 you can set up heroku db to work in the CLI `databaseh`
+- https://bloomtech-1.wistia.com/medias/2625bl7sei
+- Otherwise that is the end of this file.

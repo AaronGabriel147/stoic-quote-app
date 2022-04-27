@@ -94,7 +94,7 @@ if (process.env.DATABASE_URL) {
 
 const sharedConfig = {
     client: 'pg',
-    migrations: { directory: './data/migrations' },  // was api/data/...
+    migrations: { directory: './data/migrations' },  // Change this accordingly. 
     seeds: { directory: './data/seeds' },
 }
 
@@ -157,44 +157,4 @@ module.exports = {
 //     production: {},
 //     testing: {}
 // };
-
-
-____________________________________________________________
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-At the end he said to push, like 'git push heroku main' or w/e branch we are on.
-
-
-
-
-
-
-
-
-
 
