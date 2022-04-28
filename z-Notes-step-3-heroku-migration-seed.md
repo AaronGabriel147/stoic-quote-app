@@ -196,9 +196,6 @@ ______________________________________________
 
 # Another example of seeds:
 
-
-
-
     exports.seed = function (knex) {
     return knex('children')
         .truncate()

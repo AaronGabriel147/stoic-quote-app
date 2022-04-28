@@ -1,7 +1,7 @@
 exports.seed = function (knex, Promise) {
-  return knex('plants').truncate()
+  return knex('quotes').truncate()
     .then(function () {
-      return knex('plants').insert([
+      return knex('quotes').insert([
         {
           author: "Epictetus",
           source: "Enchiridion 5",
