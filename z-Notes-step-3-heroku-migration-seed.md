@@ -135,9 +135,14 @@ In the newly created `migration file`, the code should look like 'below' remembe
 
 ______________________________________________________
 
-# Seeds:
+# Seeds
+# Creating the first seed file:
 
-- knex seed:make NAME_OF_SEED
+
+- knex seed:make NAME_OF_SEED (Remember, knexfile is where the path information is given for migrations and seeds)
+
+
+- Create seeds code*
 
 
 - knex seed:run
@@ -145,6 +150,16 @@ ______________________________________________________
 
 Important to note, each time we want to re-seed, the DB must be reset:
 - "resetdb": "knex migrate:rollback && knex migrate:latest && knex seed:run",
+
+
+
+
+
+
+______________________________________________________
+
+
+
 
 # Example fron an old seed I created on another project:
 
@@ -175,104 +190,33 @@ Important to note, each time we want to re-seed, the DB must be reset:
     // };
 
 
-# A quote to use for a seed:
-
-    Enchiridion 5               
-    It is not things themselves that trouble us, but our judgements about things. Death, for instance, is nothing terrible, otherwise it would have appeared that way to Socrates as well. The terrible thing is the judgement that death is terrible. So whenever we are frustrated, or troubled, or pained, let us never hold anyone responsible except ourselves, meaning our own judgements.
-    
-    Uneducated people blame others when they are doing badly. 
-
-    Those whose education is underway blame themselves. 
-
-    But the fully educated person blames no one, neither himself or anyone else.
+______________________________________________
 
 
-# Quote
 
-    Your intentions to act are always with a reserve clause, remember; you were not aiming at the impossible. At what then? Simply at making the attempt itself. In this you succeeded; and with that, the object of your existence is attained."
-
-
-# Quote
-
-    Marcus Aurelius, Meditations, 7:47 
-    Observe the movement of the stars as if you were running their courses
-    with them, and let your mind constantly dwell on the changes of the
-    elements into each other.
-
-    Such imaginings wash away the filth of life on the ground.
+# Another example of seeds:
 
 
-# Quote
-
-    Seneca 95.51 letters
-    It is more wretched to harm than to be harmed.
 
 
-# Quote
+    exports.seed = function (knex) {
+    return knex('children')
+        .truncate()
+        .then(function () {
+        return knex('children').insert([
+            { id: 1, parentId: 63, name: 'Claire Marie', pin: 1234 },
+            { id: 2, parentId: 33, name: 'Audrey Belle', pin: 1234 },
+            { id: 3, parentId: 86, name: 'Marcus Aurelius', pin: 1234 },
+        ]);
+        });
+    };
 
-    ~Cato (On Ends, Cicero - Section 3.12)
-    The immediate target is to acquire something with selective value. The overall aim is to be a virtuous person; this is a skill like that of an archer, but one extending over one's life as a whole. Achieving the overall aim is compatible with missing the immediate target, and, since they have different kinds of value, they are not competing goals in life.
-
-
-# Quote
-
-    On Ends 3.22
-    Take the case of one whose task it is to shoot a spear or arrow straight at some target. One’s ultimate aim is to do all in one’s power to shoot straight, and the same applies with our ultimate goal. In this kind of example, it is to shoot straight that one must do all one can; none the less, it is to do all one can to accomplish the task that is really the ultimate aim. It is just the same with what we call the supreme good in life. To actually hit the target is, as we say, to be selected but not sought.
-
-
-# Quote
-
-    ~Pierre Hadot, The Inner Citadel, pg 106-7
-    The hēgemonikon is alone free, because it alone can give or refuse its assent to that inner discourse which enunciates what the object is which is represented by a given phantasia. This borderline which objects cannot cross, this inviolable stronghold of freedom, is the limit of what I shall revert to as the "inner citadel."
-
-
-# Quote
-
-    Antipater (Stob 2.7.6a)
-    Live continually selecting what is in accordance with nature and rejecting what is contrary to nature.
-
-
-# Quote 
-
-    Meditations 11.18.7
-    It is not people's actions that trouble us, but our judgements of them, because the harm lies in their own directing minds. Remove these judgements, make up your mind to dismiss your assessment of some supposed outrage, and your anger is gone. 
-
-    And how to remove them? By reflecting that no moral harm has been done to you. Moral harm is the only true harm.
-
-
-# Quote:
-
-    Meditations 11.18.9
-    Kindness is invincible, if it is sincere and not an act. What can the most aggressive man do to you if you continue to be kind to him? 
-
-# Quote
-
-    Seneca Letter, 113.2
-    Virtue is nothing other than the mind disposed in a certain way.
-
-
-# Quote 
-
-    Seneca, Letters 2.31.1
-    Each person has accomplished as much as he intended. 
-
-
-# Quote 
-
-    Seneca, Letters 4.21.6
-    A good intention is of use on the rack, even in the ﬂame which is applied to one limb after another and slowly surrounds the body, even if my heart, though fully aware of its goodness, drips with blood: it will delight in the ﬂame through which its good faith shines forth.
-
-
-# Quote 
-
-    Seneca, Letters 6.9.3
-    There is no beneﬁt unless it proceeds from a good intention.
+    // Note, the parentId foriegn keys needed to be edited in the original repo. 
 
 
 
 
 ______________________________________________________
-
 
 
 
