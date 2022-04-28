@@ -46,20 +46,20 @@
 
 # Quote
 
-    Cicero in the words of Cato, On Ends 3.12
+    Cicero, On Ends 3.12
     The immediate target is to acquire something with selective value. The overall aim is to be a virtuous person; this is a skill like that of an archer, but one extending over one's life as a whole. Achieving the overall aim is compatible with missing the immediate target, and, since they have different kinds of value, they are not competing goals in life.
 
 
 # Quote
 
-    Cicero, On Ends, 3.22
+    Cicero, On Ends 3.22
     Take the case of one whose task it is to shoot a spear or arrow straight at some target. One’s ultimate aim is to do all in one’s power to shoot straight, and the same applies with our ultimate goal. In this kind of example, it is to shoot straight that one must do all one can; none the less, it is to do all one can to accomplish the task that is really the ultimate aim. It is just the same with what we call the supreme good in life. To actually hit the target is, as we say, to be selected but not sought.
 
 
 # Quote
 
     Pierre Hadot, The Inner Citadel, pg 106-7
-    The hēgemonikon is alone free, because it alone can give or refuse its assent to that inner discourse which enunciates what the object is which is represented by a given phantasia. This borderline which objects cannot cross, this inviolable stronghold of freedom, is the limit of what I shall revert to as the "inner citadel."
+    The hēgemonikon is alone free, because it alone can give or refuse its assent to that inner discourse which enunciates what the object is which is represented by a given phantasia. This borderline which objects cannot cross, this inviolable stronghold of freedom, is the limit of what I shall revert to as the 'inner citadel.'
 
 
 # Quote 
@@ -77,7 +77,7 @@
 
 # Quote
 
-    Seneca Letter, 113.2
+    Seneca, Letter 113.2
     Virtue is nothing other than the mind disposed in a certain way.
 
 
