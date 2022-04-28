@@ -53,17 +53,17 @@ _________________________________
 Code inside index.js:
 
 
-require('dotenv').config();  // always put this at the top of your file.
+    require('dotenv').config();  // always put this at the top of your file.
 
-const server = require('./api/server');
+    const server = require('./api/server');
 
-const PORT = process.env.PORT || 3000;
+    const PORT = process.env.PORT || 3000;
 
 
 
-server.listen(PORT, () => {
-    console.log(`Server is listening on port ${PORT}`);
-});
+    server.listen(PORT, () => {
+        console.log(`Server is listening on port ${PORT}`);
+    });
 
 
 __________________________________
@@ -93,45 +93,45 @@ _______________________________________
 Code for api/server/js:
 
 
-const express = require('express');
-const helmet = require('helmet');   // Goes on top because it is security. 
-const cors = require('cors');
-const morgan = require('morgan');
+    const express = require('express');
+    const helmet = require('helmet');   // Goes on top because it is security. 
+    const cors = require('cors');
+    const morgan = require('morgan');
 
-// Routes
-// const dataRouter = require('../routes/data');  // Create a meaningful variable name (dataRouter).
+    // Routes
+    // const dataRouter = require('../routes/data');  // Create a meaningful variable name (dataRouter).
 
-const server = express();
-server.use(express.json());
+    const server = express();
+    server.use(express.json());
 
-server.use(cors());
-server.use(morgan('dev'));
-server.use(helmet());
+    server.use(cors());
+    server.use(morgan('dev'));
+    server.use(helmet());
 
-// server.use('/data', dataRouter); // We create the path name, we are free to use any name (/banana).
+    // server.use('/data', dataRouter); // We create the path name, we are free to use any name (/banana).
 
 
-// Initial get request.
-server.get('/', (req, res) => {
-    res.status(200).json({
-        status: 200,
-        message: 'Welcome to the API',
-        time: new Date().toLocaleString()
+    // Initial get request.
+    server.get('/', (req, res) => {
+        res.status(200).json({
+            status: 200,
+            message: 'Welcome to the API',
+            time: new Date().toLocaleString()
+        })
     })
-})
 
 
-// Error handling.
-server.use((err, req, res, next) => { // eslint-disable-line
-    res.status(err.status || 500).json({
-        message: err.message,
-        stack: err.stack,
-        status: err.status
+    // Error handling.
+    server.use((err, req, res, next) => { // eslint-disable-line
+        res.status(err.status || 500).json({
+            message: err.message,
+            stack: err.stack,
+            status: err.status
+        });
     });
-});
 
 
-module.exports = server;
+    module.exports = server;
 
 
 
