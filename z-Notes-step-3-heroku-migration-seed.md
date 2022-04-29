@@ -153,6 +153,27 @@ Important to note, each time we want to re-seed, the DB must be reset:
 
 
 
+_____________________________________________________
+
+
+
+# I creaated my migration, then deployed to Heroku, then created seeds. There are likely other ways to do this, but this is how I did it. So after creating a migration, deploy, then seed.
+
+
+# Deploy to Heroku:
+
+    - git add .
+    - git commit -m 'Heroku push.'
+    - heroku git:remote -a thestoics (this makes sure your repo is connected to Heroku)
+    - git push heroku main (must merge branch to main first, I think...)
+    - npm run migrateh
+
+
+Now if the 'Batch' has run, go to heroku.com, click app, then resources, then postgres, and see if the tables have changed!
+
+
+
+
 
 
 
@@ -220,32 +241,5 @@ ______________________________________________________
 
 
 
+In order for my `npm run seedh` command to work, I first had to run `npm run resetdb`.
 
-
-
-
-********* I AM ON THIS STEP. JUST GOTTA UPDATE HEROKU WITH SEEDS.***
-
-
-
-# Now we want to deploy to Heroku:
-
-    - git add .
-    - git commit -m 'Heroku push.'
-    - heroku git:remote -a thestoics (this makes sure your repo is connected to Heroku)
-    - git push heroku main (must merge branch to main first, I think...)
-    - npm run migrateh
-
-
-Now if the 'Batch' has run, go to heroku.com, click app, then resources, then postgres, and see if the tables have changed!
-
-
-
-_______________________________________
-
-
-
-
-@33:00 you can set up heroku db to work in the CLI `databaseh`
-- https://bloomtech-1.wistia.com/medias/2625bl7sei
-- Otherwise that is the end of this file.
