@@ -10,6 +10,7 @@
     "rollback": "knex migrate:rollback",
     "migrate": "knex migrate:latest",
     "seed": "knex seed:run",
+    "resetdb": "knex migrate:rollback && knex migrate:latest && knex seed:run",
     "rollbackh": "heroku run knex migrate:rollback -a thestoics",
     "migrateh": "heroku run knex migrate:latest -a thestoics",
     "seedh": "heroku run knex seed:run -a thestoics",
