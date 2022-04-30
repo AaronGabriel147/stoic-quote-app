@@ -5,10 +5,34 @@ function getAll() {
   return db('quotes')
 }
 
+function findById(idArg) {
+  return db('quotes').where({ id: idArg }).first();  // .first() when you want 1 thing
+}
+
 
 module.exports = {
-  getAll
+  getAll,
+  findById
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 // @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
@@ -33,9 +57,9 @@ module.exports = {
 // }
 
 
-// function findBy(argFilter) {
+// function findBy(argFilter) {       // forgot what this was for......
 //     // console.log(typeof argFilter)
-//     return db('plants').where(argFilter).first();            // without first it needs to be an array at the end point
+//     return db('plants').where(argFilter).first();  // without first it needs to be an array at the end point
 // }
 
 

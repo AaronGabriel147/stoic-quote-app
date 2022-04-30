@@ -15,24 +15,32 @@ router.get('/', async (req, res) => {
 })
 
 
-// https://github.com/AaronGabriel147/web-sprint-challenge-adding-data-persistence/blob/main/api/task/router.js
 
+// https://github.com/AaronGabriel147/web-sprint-challenge-adding-data-persistence/blob/main/api/task/router.js
 //  This is the version without checkId Middleware. See below notes for middleware version.
 
 // router.get('/:id', (req, res, next) => {
-//     Task.findById(req.params.id)
+//     Quotes.findById(req.params.id)
 //         .then(item => {
 //             if (!item) {
 //                 res.status(404).json({
 //                     message: "The post with the specified ID does not exist"
 //                 })
-//             } else {
-//                 // throw new Error("Something went wrong");
-//                 res.status(200).json(item)
-//             }
+//             } else res.status(200).json(item)
 //         })
-//         .catch(next);
+//         .catch(next)   // Not sure I have this 500 catch correct...
 // });
+
+
+// getById = http://localhost:4040/quotes/7
+router.get('/:id', async (req, res) => {
+    try {
+        const quotes = await Quotes.findById(req.params.id);
+        if (!quotes) res.status(404).json({ message: 'This ID does not exist' });
+        else res.status(200).json(quotes);
+    }
+    catch (err) { res.status(500).json({ message: err.message }) }
+})
 
 
 
