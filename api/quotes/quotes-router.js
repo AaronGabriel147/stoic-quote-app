@@ -2,13 +2,12 @@ const router = require('express').Router();
 const Quotes = require('./quotes-model');
 
 
-
-// Gets all = localhost:9000/quotes
+// Gets all = localhost:4040/quotes
 
 router.get('/', async (req, res) => {
-    console.log('Quotes')
     try {
         const quotes = await Quotes.getAll()
+        // console.log('quotes =', quotes);
         res.status(200).json(quotes)
     } catch (err) {
         res.status(500).json({ message: err.message })
@@ -178,3 +177,27 @@ module.exports = router;
 // })
 
 // module.exports = router
+
+
+
+
+//  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+// Even more notes?!
+
+
+// function getAll() {
+//     return db('quotes');
+//   }
+
+//   function findById(id) {
+//   }
+
+//   function add(quote) {
+//   }
+
+//   function update(changes, id) {
+//   }
+
+//   function remove(id) {
+//   }

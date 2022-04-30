@@ -1,8 +1,6 @@
 const db = require('../../data/db-config') // Database connection // Knex
 
 
-
-
 function getAll() {
   return db('quotes')
 }
