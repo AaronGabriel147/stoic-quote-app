@@ -9,10 +9,35 @@ function findById(idArg) {
   return db('quotes').where({ id: idArg }).first();  // .first() when you want 1 thing
 }
 
+async function create(newQuote) {
+  const [quote_data] = await db('quotes').insert(newQuote, ['*']); // This was different due to being Postgres rather than SQLite
+  return quote_data
+}
+
+
+// delete function  // In SQL it looks like: DELETE FROM users WHERE id = 2;
+async function remove(id) {
+  const deletedQuoteData = await db('quotes').where({ id: id }).del()
+  return deletedQuoteData;
+}
+
+
+// // Update plant in DB. in SQL it looks like:
+// // UPDATE plants
+// // SET species = 'a', nickname = 'b', water_frequency = 'c'
+// // WHERE id = 3;
+async function updateById(id, quote_data) {
+  await db('quotes').where({ id: id }).update(quote_data)
+  return findById(id)
+}
+
 
 module.exports = {
   getAll,
-  findById
+  findById,
+  create,
+  remove,
+  updateById
 }
 
 
@@ -73,6 +98,7 @@ module.exports = {
 //     return plant_data
 // }
 
+// This was the SQLite version
 // // // Add plant to DB
 // // const add = async (plant) => {
 // //     const [id] = await db('plants').returning('id').insert(plant)
