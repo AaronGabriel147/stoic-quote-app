@@ -1,3 +1,26 @@
+const router = require('express').Router();
+const Quotes = require('./quotes-model');
+
+
+
+// Gets all = localhost:9000/quotes
+
+router.get('/', async (req, res) => {
+    console.log('Quotes')
+    try {
+        const quotes = await Quotes.getAll()
+        res.status(200).json(quotes)
+    } catch (err) {
+        res.status(500).json({ message: err.message })
+    }
+})
+
+
+module.exports = router;
+
+
+
+
 // @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // @@@@@@@@@@@@@ NOTES BELOW @@@@@@@@@@@@@@
 // @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@

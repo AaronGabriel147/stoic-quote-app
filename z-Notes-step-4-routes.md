@@ -1,3 +1,12 @@
+
+- sources 
+
+- All
+    https://bloomtech.instructure.com/courses/1772/modules
+
+- Model 
+    https://bloomtech.instructure.com/courses/1772/pages/objective-3-write-database-access-methods?module_item_id=623867
+
 # Routes
 
 
@@ -14,3 +23,14 @@
 - https://www.youtube.com/watch?v=-mcM5GB8OIA&t=1901s
 
 - @
+
+
+
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+
+
+Make sure I label every single change I did last night.
+
+MAke sure I learn how to make the get all route to work.
