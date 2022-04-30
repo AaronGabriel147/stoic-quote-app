@@ -106,10 +106,26 @@ Now a `GET` request should return all data:
 
 
 
+Find my notes that explain exactly how to check each access function / endpoint:
+
+    https://github.com/AaronGabriel147/web-sprint-challenge-adding-data-persistence/blob/main/api/project/router.js
+
+
+    https://github.com/AaronGabriel147/web-sprint-challenge-adding-data-persistence/blob/main/api/task/router.js
+
+
+Stopping video @ 122:00 for the searching of notes:
+
+    https://www.youtube.com/watch?v=jWuzmKY5joM&t=2581s
 
 
 
 
+
+CHECK README's for old and new versions of end points. 
+I found them. Routes before middleware, and Heroku endpoint URI's. 
+
+https://github.com/water-my-plantz/server-back-end/blob/main/README.md
 
 
 
