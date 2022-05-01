@@ -1,8 +1,9 @@
 const router = require('express').Router();
 const Quotes = require('./quotes-model');
+const { checkId, checkPayload } = require('./quotes-middleware');
 
-// For delete & Update by id endpoints: 
-// checkID Middleware is not set up yet. Make sure that gets set up.
+// Note, I have a version of this saved before middleware is added.*
+
 
 // Gets all = localhost:4040/quotes
 router.get('/', async (req, res) => {
@@ -18,7 +19,7 @@ router.get('/', async (req, res) => {
 
 // https://github.com/AaronGabriel147/web-sprint-challenge-adding-data-persistence/blob/main/api/task/router.js
 //  This is the version without checkId Middleware. See below notes for middleware version.
-
+// Saved just to compare it .then to async await.
 // router.get('/:id', (req, res, next) => {
 //     Quotes.findById(req.params.id)
 //         .then(item => {
@@ -32,16 +33,10 @@ router.get('/', async (req, res) => {
 // });
 
 
-
 // getById = http://localhost:4040/quotes/7
-
-router.get('/:id', async (req, res) => {
-    try {
-        const quotes = await Quotes.findById(req.params.id);
-        if (!quotes) res.status(404).json({ message: 'This ID does not exist' });
-        else res.status(200).json(quotes);
-    }
-    catch (err) { res.status(500).json({ message: err.message }) }
+router.get('/:id', checkId, async (req, res) => {
+    const quote = await Quotes.findById(req.params.id);
+    res.status(200).json(quote);
 });
 
 
@@ -52,21 +47,18 @@ router.post('/', async (req, res) => {
 })
 
 
-// checkID Middleware is not set up yet. Make sure that gets set up.
 // Delete by id = http://localhost:4040/quotes/:id
-router.delete('/:id', async (req, res) => {
+router.delete('/:id', checkId, async (req, res) => {
     const id = req.params.id;
     await Quotes.remove(id)
     res.status(204).json(`Plant id: ${id} information has been removed.`)
 })
 
-// checkID Middleware is not set up yet. Make sure that gets set up.
 // Update by id. = http://localhost:4040/quotes/:id
-router.put('/:id', async (req, res) => {
+router.put('/:id', checkId, async (req, res) => {
     const updatedQuote = await Quotes.updateById(req.params.id, req.body)
     res.status(200).json(updatedQuote)
 })
-
 
 
 
