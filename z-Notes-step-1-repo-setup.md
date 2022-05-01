@@ -29,7 +29,7 @@ Add to scripts to package.json:
 npx gitignore node (this makes it so .env does not push to GitHub)
 
 
-mkdir api routes (creates 2 folders)
+mkdir api
 
 
 touch api/server.js routes/data.js (creates 2 files in 2 different folders)

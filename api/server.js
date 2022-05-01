@@ -3,8 +3,8 @@ const helmet = require('helmet');   // Goes on top because it is security.
 const cors = require('cors');
 const morgan = require('morgan');
 
-// Routes
-// const dataRouter = require('../routes/data');  // Create a meaningful variable name (dataRouter).
+// Routes 
+const quotesRouter = require('./quotes/quotes-router');  // Create a meaningful variable name (dataRouter).
 
 const server = express();
 server.use(express.json());
@@ -13,7 +13,7 @@ server.use(cors());
 server.use(morgan('dev'));
 server.use(helmet());
 
-// server.use('/data', dataRouter); // We create the path name, we are free to use any name (/banana).
+server.use('/quotes', quotesRouter); // We create the path name, we are free to use any name (/banana).
 
 
 // Initial get request.
