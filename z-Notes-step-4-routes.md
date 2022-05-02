@@ -653,6 +653,15 @@ ___________________________________________________
 
 
 
+# Make sure this is the URL to use to see changes on Heroku, do not use localhost. 
+
+- https://thestoics.herokuapp.com/quotes
+
+
+
+___________________________________________________
+
+
 
 Random sources: 
 
