@@ -9,32 +9,27 @@ const morgan = require('morgan');
 // Routes 
 const quotesRouter = require('./quotes/quotes-router');  // Create a meaningful variable name (dataRouter).
 
-const server = express();
-server.use(express.json());
+const app = express();
+app.use(express.json());
 
-server.use(cors());
-server.use(morgan('dev'));
-server.use(helmet());
+app.use(cors());
+app.use(morgan('dev'));
+app.use(helmet());
 
-server.use('/quotes', quotesRouter); // We create the path name, we are free to use any name (/banana).
+app.use('/quotes', quotesRouter); // We create the path name, we are free to use any name (/banana).
 
 
 // Initial get request.
-server.get('/', (req, res) => {
+app.get('/', (req, res) => {
     res.status(200).json({
         status: 200,
         message: 'Welcome to the API',
         time: new Date().toLocaleString()
-    })
-})
-
-// server.get("/", (req, res) => {
-//     res.status(200).send("Hello World!");
-// });
-
+    });
+});
 
 // Error handling.
-server.use((err, req, res, next) => { // eslint-disable-line
+app.use((err, req, res, next) => { // eslint-disable-line
     res.status(err.status || 500).json({
         message: err.message,
         stack: err.stack,
@@ -43,4 +38,4 @@ server.use((err, req, res, next) => { // eslint-disable-line
 });
 
 
-module.exports = server;
+module.exports = app;

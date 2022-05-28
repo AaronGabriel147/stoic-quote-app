@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const Quotes = require('./quotes-model');
-const { checkId, checkPayload } = require('./quotes-middleware');
+const { checkId } = require('./quotes-middleware');
 
 // Note, I have a version of this saved before middleware is added.*
 
