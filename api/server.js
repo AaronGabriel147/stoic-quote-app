@@ -1,3 +1,6 @@
+
+// App.s (next time name it this) 
+
 const express = require('express');
 const helmet = require('helmet');   // Goes on top because it is security. 
 const cors = require('cors');
@@ -24,6 +27,10 @@ server.get('/', (req, res) => {
         time: new Date().toLocaleString()
     })
 })
+
+// server.get("/", (req, res) => {
+//     res.status(200).send("Hello World!");
+// });
 
 
 // Error handling.

@@ -1,7 +1,7 @@
+
+// Server
 require('dotenv').config();  // always put this at the top of your file.
-
-const server = require('./api/server');
-
+const server = require('./api/server'); // name this app next time.
 const PORT = process.env.PORT || 3000;
 
 
