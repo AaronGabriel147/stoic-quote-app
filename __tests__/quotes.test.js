@@ -15,16 +15,16 @@ describe('quotes router endpoints', () => {
         jest.clearAllMocks();
     });
 
-    // describe('GET /quotes', () => {
-    //     it('should return 200', async () => {
-    //         Quotes.getAll.mockResolvedValue([]);
-    //         const res = await request(server).get('/quotes');
-    //         const quotesLength = Quotes.getAll.mock.calls.length;
-    //         expect(res.status).toBe(200);
-    //         expect(res.body.length).toBe(0);
-    //         expect(quotesLength).toBe(1);
-    //     });
-    // });
+    describe('GET /quotes', () => {
+        it('should return 200', async () => {
+            Quotes.getAll.mockResolvedValue([]);
+            const res = await request(server).get('/quotes');
+            const quotesLength = Quotes.getAll.mock.calls.length;
+            expect(res.status).toBe(200);
+            expect(res.body.length).toBe(0);
+            expect(quotesLength).toBe(1);
+        });
+    }); // end of describe (GET /quotes)
 
     describe('GET /quotes/:id', () => {
         it('should return 200', async () => {
@@ -32,11 +32,13 @@ describe('quotes router endpoints', () => {
             const res = await request(server).get('/quotes/144');
             expect(res.status).toBe(200);
         });
+
         it('should return 404 when story not found', async () => {
             Quotes.findById.mockResolvedValue();
             const res = await request(server).get('/quotes/99');
             expect(res.status).toBe(404);
         });
+
         it('should return 500 when error', async () => {
             Quotes.findById.mockRejectedValue({}); // Note "mockRejectedValue"
             const res = await request(server).get('/quotes/144');
@@ -62,11 +64,64 @@ describe('quotes router endpoints', () => {
             expect(res.body.source).toBe('mocked source');
             expect(res.body.quote).toBe('mocked quote');
         });
+    }); // end of describe('GET /quotes/:id')
 
+    describe('POST /quotes', () => {
+        it('should return 201', async () => {
+            const res = await request(server).post('/quotes')
+            expect(res.status).toBe(201);
+        });
 
+        it('should return 400 when missing required fields', async () => {
+            const mockAdd = {
+                id: 111,
+                author: "Seneca",
+                source: "To Nero",
+                quote: "What have you done?"
+            };
+            Quotes.create.mockResolvedValue({ mockAdd });
+            const res = await request(server).post('/quotes').send(mockAdd);
+            expect(res.body.mockAdd.id).not.toBe(999);
+            expect(res.body.mockAdd.author).not.toBe("Epicurus");
+            expect(res.body.mockAdd.source).not.toBe("The Garden");
+            expect(res.body.mockAdd.quote).not.toBe("Death does not exist.");
+        });
+    }); // end of describe('POST /quotes')
 
+    describe('DELETE /quotes/:id', () => {
+        it('should return 204', async () => {
+            Quotes.remove.mockResolvedValue({});
+            const res = await request(server).delete('/quotes/111');
+            expect(res.status).toBe(204);
+        });
+    }); // end of describe('DELETE /quotes/:id')
 
-    }); // End of describe('GET /quotes/:id')
+    describe('PUT /quotes/:id', () => {
+        it('should return 200', async () => {
+            Quotes.updateById.mockResolvedValue({});
+            const res = await request(server).put('/quotes/111');
+            expect(res.status).toBe(200);
+        });
+
+        it('should allow data to be updated', async () => {
+            const obj = {
+                id: 111,
+                author: "Seneca",
+                source: "To Nero",
+                quote: "What have you done?"
+            };
+            Quotes.updateById.mockResolvedValue({
+                id: 86,
+                author: "Changed name",
+                source: "Changed source",
+                quote: "Changed quote"
+            });
+            const res = await request(server).put('/quotes/111').send(obj);
+            console.log('@@@@@@@@@@@@@', res.body.id);
+            expect(res.body.id).toBe(86);
+        });
+    }); // end of describe('PUT /quotes/:id')
+
 }); // end of parent test suite
 
 
@@ -77,23 +132,9 @@ describe('quotes router endpoints', () => {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // _______________________________________________________________
-
-// A quick wat to check GET "/"
+// For future reference:
+// A quick way to check GET "/"
 
 // const request = require("supertest");
 // const app = require("../api/app"); // only for the GET"/" route.
