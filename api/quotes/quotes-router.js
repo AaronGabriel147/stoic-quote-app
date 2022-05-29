@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const Quotes = require('./quotes-model');
-const { checkId, checkPayload } = require('./quotes-middleware');
+const { checkId } = require('./quotes-middleware');
 
 // Note, I have a version of this saved before middleware is added.*
 
@@ -15,22 +15,6 @@ router.get('/', async (req, res) => {
         res.status(500).json({ message: err.message })
     }
 });
-
-
-// https://github.com/AaronGabriel147/web-sprint-challenge-adding-data-persistence/blob/main/api/task/router.js
-//  This is the version without checkId Middleware. See below notes for middleware version.
-// Saved just to compare it .then to async await.
-// router.get('/:id', (req, res, next) => {
-//     Quotes.findById(req.params.id)
-//         .then(item => {
-//             if (!item) {
-//                 res.status(404).json({
-//                     message: "The post with the specified ID does not exist"
-//                 })
-//             } else res.status(200).json(item)
-//         })
-//         .catch(next)   // Not sure I have this 500 catch correct...
-// });
 
 
 // getById = http://localhost:4040/quotes/7
@@ -53,6 +37,7 @@ router.delete('/:id', checkId, async (req, res) => {
     await Quotes.remove(id)
     res.status(204).json(`Plant id: ${id} information has been removed.`)
 })
+
 
 // Update by id. = http://localhost:4040/quotes/:id
 router.put('/:id', checkId, async (req, res) => {
@@ -78,6 +63,21 @@ module.exports = router;
 
 
 
+// https://github.com/AaronGabriel147/web-sprint-challenge-adding-data-persistence/blob/main/api/task/router.js
+
+//  This is the version without checkId Middleware. See below notes for middleware version.
+// Saved just to compare it .then to async await.
+// router.get('/:id', (req, res, next) => {
+//     Quotes.findById(req.params.id)
+//         .then(item => {
+//             if (!item) {
+//                 res.status(404).json({
+//                     message: "The post with the specified ID does not exist"
+//                 })
+//             } else res.status(200).json(item)
+//         })
+//         .catch(next)   // Not sure I have this 500 catch correct...
+// });
 
 
 // @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@

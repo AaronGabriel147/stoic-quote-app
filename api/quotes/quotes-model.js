@@ -5,9 +5,11 @@ function getAll() {
   return db('quotes')
 }
 
+
 function findById(idArg) {
   return db('quotes').where({ id: idArg }).first();  // .first() when you want 1 thing
 }
+
 
 async function create(newQuote) {
   const [quote_data] = await db('quotes').insert(newQuote, ['*']); // This was different due to being Postgres rather than SQLite
